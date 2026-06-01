@@ -8,7 +8,7 @@ class PallindromeNo {
             x=x/10;              //121/10= 12 , 12/10 = 1  , 1/10 = 0
             revNo = revNo*10+temp;    //revNo=0*10+1=1  ,revNo=1*10+2=12  , revNo=0*10+1=1
         }
-    return revNo==originalNo;
+    return revNo==originalNo;            // == is boolean operator in java return true/false
             
     }
 }
