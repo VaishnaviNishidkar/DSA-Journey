@@ -16,6 +16,35 @@ class Solution {
     }
     return  minLength== Integer.MAX_VALUE ? 0:minLength;
     }
+}
+//brute force 
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+
+        int minLength = Integer.MAX_VALUE;
+
+        // Choose every element as starting point
+        for(int i = 0; i < nums.length; i++) {
+
+            int sum = 0;
+
+            // Extend the subarray
+            for(int j = i; j < nums.length; j++) {
+
+                sum += nums[j];
+
+                // Check if target is reached
+                if(sum >= target) {
+
+                    minLength = Math.min(minLength, j - i + 1);
+
+                    break;   // No need to extend further
+                }
+            }
+        }
+
+        return minLength == Integer.MAX_VALUE ? 0 : minLength;
+    }
 }/*
 Problem: Minimum Size Subarray Sum
 
