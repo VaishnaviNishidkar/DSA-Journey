@@ -62,3 +62,37 @@ Store in temp[]
         ↓
 Copy temp[] → arr[]
     */
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+        k%=nums.length;
+        reverse(nums,0,nums.length-1);
+         reverse(nums,0,k-1);
+          reverse(nums,k,nums.length-1);
+    }
+    private void reverse(int [] nums,int start,int end){
+        while(start<end){
+        int temp=nums[start];
+        nums[start]=nums[end];
+        nums[end]=temp;
+
+        start++;
+        end--;
+        
+        }
+            }
+}
+/*Algorithm:
+
+k %= n → keep k within array size.
+Reverse whole array.
+Reverse first k elements.
+Reverse remaining n-k elements.
+
+Key Observation:
+All → First k → Remaining
+
+TC: O(n)
+SC: O(1)
+
+Important: In your reverse() method, while(start <= end) is also correct. while(start < end) is more commonly written, but both work.*/
